@@ -7,16 +7,17 @@ const App = () => {
   let password = '';
 
   const handleChangeInput = (event) => {
-    event.target.name === 'email' ? 
-      email = event.target.value 
-      : 
-      password = event.target.value
+    if (event.target.name === 'email') {
+      email = event.target.value;
+    } else {
+      password = event.target.value;
+    }
   }
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (!email || !password) {
+    if (!email.trim() || !password.trim()) {
       alert('Заполните все поля')
     } else {
       console.log({ email, password })
