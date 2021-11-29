@@ -1,0 +1,21 @@
+
+form {
+  margin: 50px auto 0;
+  width: 300px;
+  border: 1px solid #bebebe;
+  padding: 10px;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+input {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  outline: none;
+  margin-bottom: 10px;
+}
+
+button {
+  cursor: pointer;
+}

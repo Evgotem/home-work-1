@@ -1,0 +1,16 @@
+.wrapper {
+  margin: 50px auto;
+  width: 500px;
+}
+
+button {
+  cursor: pointer;
+}
+
+input {
+  outline: none;
+}
+
+li {
+  margin-bottom: 15px;
+}
