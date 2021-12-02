@@ -5,16 +5,16 @@ import Divider from '@mui/material/Divider';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
-import Typography from '@mui/material/Typography';
 
 
 export default function AlignItemsList(props) {
 
   return (
-    <List sx={ { width: '100%', maxWidth: 360, bgcolor: 'background.paper', marginBottom: 5 } }>
+    <List sx={ { width: '100%', maxWidth: 360, bgcolor: 'background.paper', marginBottom: 1 } }>
       <ListItem alignItems="flex-start">
         <ListItemAvatar>
-          <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+          <Avatar alt={ props.fullName } src="https://source.unsplash.com/50x50/?people"
+          />
         </ListItemAvatar>
         <ListItemText
           primary={ props.name }

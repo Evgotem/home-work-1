@@ -13,7 +13,6 @@ export default function Form({ onUpdateComments }) {
 
   React.useEffect(() => {
     localStorage.setItem('comments', JSON.stringify(comments));
-    onUpdateComments(comments);
   }, [comments])
 
   const handleChangeText = (event) => {
@@ -40,6 +39,16 @@ export default function Form({ onUpdateComments }) {
           }
         ]
       );
+      
+      onUpdateComments([
+        ...comments,
+        {
+          'fullName': name,
+          'email': email,
+          'createdAt': new Date(),
+          'text': text
+        }
+      ]);
     } else {
       alert('Заполните все поля!')
     }
