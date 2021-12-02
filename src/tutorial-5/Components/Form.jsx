@@ -2,18 +2,16 @@ import * as React from 'react';
 import { Button, Card, CardContent, Grid, TextField, Typography } from '@mui/material';
 
 
-export default function Form({ onUpdateComments }) {
+export default function Form({ onUpdateComments, comments }) {
 
-  const [comments, setComments] = React.useState([]);
+  
   const [name, setName] = React.useState('');
   const [email, setEmail] = React.useState('');
   const [text, setText] = React.useState('');
 
   const formRef = React.useRef();
 
-  React.useEffect(() => {
-    localStorage.setItem('comments', JSON.stringify(comments));
-  }, [comments])
+
 
   const handleChangeText = (event) => {
     setText(event.target.value);
@@ -28,20 +26,8 @@ export default function Form({ onUpdateComments }) {
   const handleClick = (e) => {
     e.preventDefault();
     if (name.trim() && email.trim() && text.trim()) {
-      setComments(
-        [
-          ...comments,
-          {
-            'fullName': name,
-            'email': email,
-            'createdAt': new Date(),
-            'text': text
-          }
-        ]
-      );
       
       onUpdateComments([
-        ...comments,
         {
           'fullName': name,
           'email': email,

@@ -5,33 +5,32 @@ import Form from './Components/Form.jsx'
 
 const App = () => {
 
-  const [initMessage, setInitMessage] = React.useState([])
-  const [newMessage, setNewMessage] = React.useState();
+  const [comments, setComments] = React.useState([]);
 
   React.useEffect(() => {
-    if (JSON.parse(localStorage.getItem('comments')).length !== 0) {
-      setInitMessage(JSON.parse(localStorage.getItem('comments')))
+    if (JSON.parse(localStorage.getItem('comments'))) {
+      setComments(JSON.parse(localStorage.getItem('comments')))
     }
   }, [])
 
+  React.useEffect(() => {
+    localStorage.setItem('comments', JSON.stringify(comments));
+  }, [comments])
+
   const onUpdateComments = (arrComments) => {
-    setNewMessage(arrComments)
+    setComments(prev => [...prev, ...arrComments])
   }
 
   return (
     <div className={ classes.wrapper }>
       <h2>Отзывы:</h2>
+
       {
-        initMessage.length > 1
+        comments
         &&
-        initMessage.map(item => <AlignItemsList key={ item.fullName + item.text } name={ item.fullName } text={ item.text } />)
+        comments.map((item, index) => <AlignItemsList key={ index } name={ item.fullName } text={ item.text } />)
       }
-      {
-        newMessage
-        &&
-        newMessage.map(item => <AlignItemsList key={ item.fullName + item.text } name={ item.fullName } text={ item.text } />)
-      }
-      <Form onUpdateComments={ onUpdateComments } />
+      <Form onUpdateComments={ onUpdateComments } comments={ comments } />
     </div>
   )
 }
