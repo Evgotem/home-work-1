@@ -28,7 +28,7 @@ const App = () => {
       {
         comments
         &&
-        comments.map((item, index) => <AlignItemsList key={ index } name={ item.fullName } text={ item.text } />)
+        comments.map((item, index) => <AlignItemsList key={ index } name={ item.fullName } text={ item.text } />) 
       }
       <Form onUpdateComments={ onUpdateComments } comments={ comments } />
     </div>
