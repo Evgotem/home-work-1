@@ -5,8 +5,7 @@ import './App.css';
 export default function App() {
   const { pathname } = window.location;
 
-  let path = pathname.split('/');
-  let pathId = path[path.length-1];
+  let id = pathname.split('/')[2]
 
   return (
     <div className="App">
@@ -52,7 +51,7 @@ export default function App() {
       ) }
       { pathname.includes('/post/') && (
         <div>
-          <h1>Статья №{pathId}</h1>
+          <h1>Статья №{id}</h1>
           <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae distinctio fuga animi
               aliquam sit id veritatis, doloribus ducimus quas, dignissimos non minima quia amet possimus?
