@@ -5,6 +5,9 @@ import './App.css';
 export default function App() {
   const { pathname } = window.location;
 
+  let path = pathname.split('/');
+  let pathId = path[path.length-1];
+
   return (
     <div className="App">
       <header>
@@ -47,7 +50,17 @@ export default function App() {
           </Col>
         </Row>
       ) }
-      {/* ТУТ ДОПИСАТЬ РОУТ НА ПОЛНУЮ ЗАПИСЬ */ }
+      { pathname.includes('/post/') && (
+        <div>
+          <h1>Статья №{pathId}</h1>
+          <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae distinctio fuga animi
+              aliquam sit id veritatis, doloribus ducimus quas, dignissimos non minima quia amet possimus?
+              Impedit nemo ducimus fuga rem!
+          </p>
+          <a href="/"><button>Назад</button></a>
+        </div>
+      )}
       { pathname === "/about" && (
         <Card>
           <Card.Body>Это мой личный сайт!</Card.Body>
