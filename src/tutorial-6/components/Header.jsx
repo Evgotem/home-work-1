@@ -1,29 +1,24 @@
-import React from 'react'
-import { Nav } from 'react-bootstrap'
+import React from 'react';
+import { Nav } from 'react-bootstrap';
+import { Link, NavLink } from 'react-router-dom';
 
 export const Header = () => {
   return (
     <header>
-        <h2>
-          <a href="/">React Blog</a>
-        </h2>
-        <Nav variant="pills" defaultActiveKey="/">
-          <Nav.Item>
-            <Nav.Link eventKey="/home" to="/">
-              Главная
-            </Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link eventKey="/home" to="/about">
-              Обо мне
-            </Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link eventKey="/home" to="/profile">
-              Профиль
-            </Nav.Link>
-          </Nav.Item>
-        </Nav>
-      </header>
-  )
-}
+      <h2>
+        <Link to="/">React Blog</Link>
+      </h2>
+      <Nav variant="pills" defaultActiveKey="/">
+        <Nav.Item>
+          <Nav.Link as={NavLink} to="/">Главная</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link as={NavLink} to="/about">Обо мне</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link as={NavLink} to="/profile">Профиль</Nav.Link>
+        </Nav.Item>
+      </Nav>
+    </header>
+  );
+};

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, Col, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 export const Home = () => {
   return (
@@ -9,7 +10,7 @@ export const Home = () => {
           <Card.Img variant="top" src="https://via.placeholder.com/150x150" />
           <Card.Body>
             <Card.Title>
-              <a href="/post/1">Card title</a>
+              <Link to="/post/1">Card title</Link>
             </Card.Title>
             <Card.Text>
               This is a longer card with supporting text below as a natural
