@@ -8,36 +8,30 @@ const App = () => {
   const { handleSubmit, register, formState, reset } = useForm();
 
   const onSubmit = (data) => {
-    console.log('Форма: ' + data);
-  }
-
-  console.log(formState.errors);
+    console.log(data);
+  };
 
   return (
-    <div className="wrapper">
+    <form className="wrapper">
       <TextField
         name="firstName"
         label="Имя"
         margin="normal"
         {...register('firstName', {
-          required: 'Представься'
+          required: 'Представься',
         })}
-        helperText={
-          formState.errors.firstName && formState.errors.firstName.message
-        }
-        error= {!!formState.errors.firstName}
+        helperText={formState.errors.firstName && formState.errors.firstName.message}
+        error={!!formState.errors.firstName}
       />
       <TextField
         name="lastName"
         label="Фамилия"
         margin="normal"
         {...register('lastName', {
-          required: 'Представься до конца!'
+          required: 'Представься до конца!',
         })}
-        helperText={
-          formState.errors.lastName && formState.errors.lastName.message
-        }
-        error= {!!formState.errors.lastName}
+        helperText={formState.errors.lastName && formState.errors.lastName.message}
+        error={!!formState.errors.lastName}
       />
       <TextField
         name="email"
@@ -46,26 +40,23 @@ const App = () => {
         {...register('email', {
           required: 'Мыло черкни',
           pattern: {
-            value: /^([A-Z|a-z|0-9](\.|_){0,1})+[A-Z|a-z|0-9]\@([A-Z|a-z|0-9])+((\.){0,1}[A-Z|a-z|0-9]){2}\.[a-z]{2,3}$/gm,
-            message: 'Настоящее мыло надо!'
-          }
+            value:
+              /^([A-Z|a-z|0-9](\.|_){0,1})+[A-Z|a-z|0-9]\@([A-Z|a-z|0-9])+((\.){0,1}[A-Z|a-z|0-9]){2}\.[a-z]{2,3}$/gm,
+            message: 'Настоящее мыло надо!',
+          },
         })}
-        helperText={
-          formState.errors.email && formState.errors.email.message
-        }
-        error= {!!formState.errors.email}
+        helperText={formState.errors.email && formState.errors.email.message}
+        error={!!formState.errors.email}
       />
       <TextField
         name="password"
         label="Пароль"
         margin="normal"
         {...register('password', {
-          required: 'Шифр запили'
+          required: 'Шифр запили',
         })}
-        helperText={
-          formState.errors.password && formState.errors.password.message
-        }
-        error= {!!formState.errors.password}
+        helperText={formState.errors.password && formState.errors.password.message}
+        error={!!formState.errors.password}
         type="password"
       />
       <Button
@@ -76,14 +67,14 @@ const App = () => {
         Зарегистрироваться
       </Button>
       <Button
-        onClick={}
-        type='reset'
+        onClick={() => reset()}
+        type="reset"
         color="secondary"
         variant="contained"
         style={{ marginTop: '10px' }}>
         Очистить
       </Button>
-    </div>
+    </form>
   );
 };
 
