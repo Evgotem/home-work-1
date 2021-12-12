@@ -5,7 +5,8 @@ import { TextField, Button } from '@mui/material';
 import { useForm } from 'react-hook-form';
 
 const App = () => {
-  const { handleSubmit, register, formState, reset } = useForm();
+  const defaultValues = { firstName: '', lastName: '', email: '', password: '' }
+  const { handleSubmit, register, formState, reset } = useForm(defaultValues);
 
   const onSubmit = (data) => {
     console.log(data);
@@ -67,7 +68,7 @@ const App = () => {
         Зарегистрироваться
       </Button>
       <Button
-        onClick={() => reset()}
+        onClick={() => reset(defaultValues)}
         type="reset"
         color="secondary"
         variant="contained"
