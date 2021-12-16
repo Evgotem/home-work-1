@@ -17,14 +17,15 @@ const schema = yup
   })
   .required();
 
-export const PresonalInfoForm = () => {
+export const PresonalInfoForm = ({ nextStep, setFormValues }) => {
   const defaultValues = { firstName: '', lastName: '', email: '', password: '' };
   const { handleSubmit, register, formState, reset } = useForm({
     resolver: yupResolver(schema),
   });
 
   const onSubmit = (data) => {
-    console.log(data);
+    setFormValues(data);
+    nextStep('address');
   };
 
   return (
@@ -69,11 +70,10 @@ export const PresonalInfoForm = () => {
           color="secondary"
           variant="contained"
           style={{ marginRight: '10px' }}
-          fullWidth
-        >
+          fullWidth>
           Очистить
         </Button>
-        <Button onClick={handleSubmit(onSubmit)} variant="contained" color="default" fullWidth>
+        <Button onClick={handleSubmit(onSubmit)} variant="contained" color="primary" fullWidth>
           Далее
         </Button>
       </div>
