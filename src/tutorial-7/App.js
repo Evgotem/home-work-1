@@ -25,7 +25,7 @@ const App = () => {
       alert('Почта неверная!');
       return;
     }
-    if (fields.firstName.length < 2 || fields.lastName < 3) {
+    if (fields.firstName.length < 2 || fields.lastName.length < 2) {
       alert('Имя или фамилия указаны неверно!');
       return;
     }
