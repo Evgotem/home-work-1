@@ -5,10 +5,14 @@ const App = () => {
   const [users, setUsers] = React.useState([]);
 
   const getUsers = async () => {
-    const response = await fetch('https://60e0b5b96b689e001788cb8e.mockapi.io/users')
-    const data = await response.json();
-
-    setUsers(data)   
+    try {
+      const response = await fetch('https://60e0b5b96b689e001788cb8e.mockapi.io/users')
+      const data = await response.json();
+  
+      setUsers(data) 
+    } catch (error) {
+      console.log('ошибка: ', error);
+    } 
   }
 
   return (
