@@ -14,7 +14,7 @@ const App = () => {
     const { name, value } = event.target;
     setData({
       ...data,
-      [name]: value,
+      [name]: value, 
     });
   };
 
